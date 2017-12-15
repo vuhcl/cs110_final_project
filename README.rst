@@ -67,8 +67,11 @@ elements, and m = 2^q is the number of slots. Then the false positive rate is:
 capacity (n), we can calculate q, r as follows:
 
 r = -log_2(f)
+
 α = -ln(1 - f) * 2^r <=> m = -n/(ln(1 - f) * 2^r)
+
 Or if α is given: m = n/α
+
 q = log_2(m)
 
 Scaling
