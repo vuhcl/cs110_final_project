@@ -12,7 +12,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='cs110_finalproject_vu_quotientfilter',
-    version='1.0aN',  # Required
+    version='1.0a1',
     description='Final Project - CS110 Fall 2017',
     url='https://github.com/vuhcl/cs110_final_project',
     author='Vu H. Chu-Le',
