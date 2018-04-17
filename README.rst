@@ -7,16 +7,16 @@ Vu H. Chu-Le
 Overview
 ========
 
-In Assignment 3, we implemented Bloom filter (BL), which is a data structure
+In Assignment 3, we implemented Bloom filter (BF), which is a data structure
 representing a set of data using an array of m bits, initially all set to 0.
 It is used to test whether an element is a member of a set. The filter uses k
 independent hash functions that map each element in the data set to one of the
 m array positions, generating a uniform random distribution. ("Bloom filter",
-n.d.) We also implemented counting Bloom filter, an extension of BL that
+n.d.) We also implemented counting Bloom filter, an extension of BF that
 supports deletion.
 
 For this project, we explore Quotient filters (QF), which maintain many of the
-same guarantees as BL, but are much more cache-friendly and therefore work
+same guarantees as BF, but are much more cache-friendly and therefore work
 faster in memory-constrained conditions.
 
 Design
@@ -57,7 +57,7 @@ Behaviour
 Parameters
 ----------
 
-Similar to BL, QL guarantees that there is no false negatives, but trades memory
+Similar to BF, QL guarantees that there is no false negatives, but trades memory
 efficiency for a small false positive rate. A false positive can occur only when
 two elements map to the same fingerprint (Bender et. al., 2011).
 
@@ -77,7 +77,7 @@ q = log_2(m)
 Scaling
 -------
 
-According to Bender et. al. (2011), for a QF and a BL that can hold the same
+According to Bender et. al. (2011), for a QF and a BF that can hold the same
 number of elements and with the same false positive rate, a QF with α = 3/4
 requires 1.2 times as much space as a BL with 10 hash functions. The ratio
 will change as parameters vary.
@@ -102,14 +102,14 @@ Pros and cons
 Pros
 ----
 
-As mentioned above, QF is expected to be faster than BL as it only checks one
+As mentioned above, QF is expected to be faster than BF as it only checks one
 hash function. Moreover, QF also supports deletions and merge without affecting
 the false positive rate.
 
 Cons
 ----
 
-QF requires more space than BL. However, QF is still more space-efficient
+QF requires more space than BF. However, QF is still more space-efficient
 compared to other alternatives that support deletions such as counting BF. Still,
 as we implement the QF, we find that it is much harder to implement, debug, and
 maintain.
